@@ -1,0 +1,5 @@
+{
+  "mongodb": {
+    "uri": "mongodb+srv://Admin:grandcircus@grandcircus.82vxl.mongodb.net/final-project-database?retryWrites=true&w=majority"
+  }
+}
