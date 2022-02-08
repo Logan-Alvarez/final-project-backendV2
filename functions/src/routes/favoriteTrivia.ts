@@ -6,7 +6,7 @@ import { ObjectId } from "mongodb";
 const favTriviaRoute = express.Router();
 
 //GET
-favTriviaRoute.get("/favorites", async (req, res) => {
+favTriviaRoute.get("/favtrivia", async (req, res) => {
   try {
     const client = await getClient();
     const result = await client
@@ -21,7 +21,7 @@ favTriviaRoute.get("/favorites", async (req, res) => {
 });
 
 //POST
-favTriviaRoute.post("/favorites", async (req, res) => {
+favTriviaRoute.post("/favtrivia", async (req, res) => {
   let newTrivia = req.body as Data;
   try {
     const client = await getClient();
@@ -34,7 +34,7 @@ favTriviaRoute.post("/favorites", async (req, res) => {
 });
 
 //Delete
-favTriviaRoute.delete("/favorites/:id", async (req, res) => {
+favTriviaRoute.delete("/favtrivia/:id", async (req, res) => {
   const id = req.params.id;
   try {
     const client = await getClient();
