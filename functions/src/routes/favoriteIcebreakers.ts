@@ -6,7 +6,7 @@ import { ObjectId } from "mongodb";
 const favIcebreakerRoute = express.Router();
 
 //GET
-favIcebreakerRoute.get("/favorites", async (req, res) => {
+favIcebreakerRoute.get("/favicebreakers", async (req, res) => {
   try {
     const client = await getClient();
     const result = await client
@@ -21,7 +21,7 @@ favIcebreakerRoute.get("/favorites", async (req, res) => {
 });
 
 //POST
-favIcebreakerRoute.post("/favorites", async (req, res) => {
+favIcebreakerRoute.post("/favicebreakers", async (req, res) => {
   let newIceBreaker = req.body as IceBreaker;
   try {
     const client = await getClient();
@@ -37,7 +37,7 @@ favIcebreakerRoute.post("/favorites", async (req, res) => {
 });
 
 //Delete
-favIcebreakerRoute.delete("/favorites/:id", async (req, res) => {
+favIcebreakerRoute.delete("/favicebreakers/:id", async (req, res) => {
   const id = req.params.id;
   try {
     const client = await getClient();
