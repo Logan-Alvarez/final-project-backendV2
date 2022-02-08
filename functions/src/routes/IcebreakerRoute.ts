@@ -56,7 +56,7 @@ IcebreakerRoute.post("/icebreakers", async (req, res) => {
 });
 
 //PUT
-IcebreakerRoute.put("/Icebreakers/:id", async (req, res) => {
+IcebreakerRoute.put("/icebreakers/:id", async (req, res) => {
   const id = req.params.id;
   const data = req.body as IceBreaker;
   delete data._id;
