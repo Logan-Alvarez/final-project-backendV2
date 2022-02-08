@@ -1,6 +1,6 @@
 import express from "express";
 import { getClient } from "../db";
-import IceBreaker from "../models/icebreaker";
+import IceBreaker from "../models/Icebreaker";
 import { ObjectId } from "mongodb";
 
 const favIcebreakerRoute = express.Router();
