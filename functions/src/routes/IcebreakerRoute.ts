@@ -1,5 +1,5 @@
 import express from "express";
-import IceBreaker from "../models/icebreaker";
+import IceBreaker from "../models/Icebreaker";
 import { getClient } from "../db";
 import { ObjectId } from "mongodb";
 
