@@ -21,6 +21,7 @@ favoriteJoke.get("/favjokes", async (req, res) => {
 
 favoriteJoke.post("/favjokes", async (req, res) => {
   let newJoke = req.body as jokes;
+  delete newJoke._id;
   try {
     const client = await getClient();
     await client.db().collection<jokes>("favoriteJokes").insertOne(newJoke);
