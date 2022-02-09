@@ -2,6 +2,8 @@ import express from "express";
 import { getClient } from "../db";
 import IceBreaker from "../models/Icebreaker";
 import { ObjectId } from "mongodb";
+import { getClient } from "../db";
+import IceBreaker from "../models/Icebreaker";
 
 const favIcebreakerRoute = express.Router();
 
@@ -22,15 +24,16 @@ favIcebreakerRoute.get("/favicebreakers", async (req, res) => {
 
 //POST
 favIcebreakerRoute.post("/favicebreakers", async (req, res) => {
-  let newIceBreaker = req.body as IceBreaker;
+  const favIceBreaker = req.body as IceBreaker;
+  delete favIceBreaker._id; //Delete the old _id then when added to the new array Mongodb assigns a new ObjectId? -YES IT WORKS
   try {
     const client = await getClient();
     await client
       .db()
       .collection<IceBreaker>("favoriteIcebreakers")
-      .insertOne(newIceBreaker);
+      .insertOne(favIceBreaker);
     res.status(201);
-    res.json(newIceBreaker);
+    res.json(favIceBreaker);
   } catch (err) {
     res.status(500).json({ message: "Internal Server Error" });
   }
